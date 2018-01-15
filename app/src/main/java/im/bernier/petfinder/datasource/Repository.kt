@@ -13,16 +13,12 @@
 
 package im.bernier.petfinder.datasource
 
-import im.bernier.petfinder.model.Breeds
-import im.bernier.petfinder.model.Search
-import im.bernier.petfinder.model.SearchResult
-import im.bernier.petfinder.model.ShelterResult
-import im.bernier.petfinder.model.ShelterSearch
+import im.bernier.petfinder.model.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Retrofit
-import retrofit2.converter.simplexml.SimpleXmlConverterFactory
+import retrofit2.converter.jaxb.JaxbConverterFactory
 
 /**
  * Created by Michael on 2016-07-09.
@@ -42,7 +38,7 @@ class Repository private constructor() {
         val retrofit = Retrofit.Builder()
                 .baseUrl("http://api.petfinder.com")
                 .client(client)
-                .addConverterFactory(SimpleXmlConverterFactory.create())
+                .addConverterFactory(JaxbConverterFactory.create())
                 .build()
         service = retrofit.create(Service::class.java)
     }

@@ -13,20 +13,17 @@
 
 package im.bernier.petfinder.model
 
-import org.simpleframework.xml.Attribute
-import org.simpleframework.xml.Element
-import org.simpleframework.xml.ElementList
-import org.simpleframework.xml.Namespace
-import org.simpleframework.xml.Root
-
-import java.util.ArrayList
+import java.util.*
+import javax.xml.bind.annotation.XmlAttribute
+import javax.xml.bind.annotation.XmlElement
+import javax.xml.bind.annotation.XmlElements
+import javax.xml.bind.annotation.XmlRootElement
 
 /**
  * Created by Michael on 2016-08-06.
  */
 
-@Root(name = "petfinder", strict = false)
-data class Breeds(@field:ElementList(required = false) var breeds: ArrayList<String>? = null,
-                  @field:Element var header: ErrorHeader? = null,
-                  @field:Namespace(reference = "http://www.w3.org/2001/XMLSchema-instance", prefix = "xsi")
-                  @field:Attribute var noNamespaceSchemaLocation: String? = null)
+@XmlRootElement(name = "petfinder")
+data class Breeds(@XmlElements var breeds: ArrayList<String>? = null,
+                  @XmlElement var header: ErrorHeader? = null,
+                  @XmlAttribute(namespace = "http://www.w3.org/2001/XMLSchema-instance") var noNamespaceSchemaLocation: String? = null)

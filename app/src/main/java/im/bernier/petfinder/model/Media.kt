@@ -13,18 +13,16 @@
 
 package im.bernier.petfinder.model
 
-import org.simpleframework.xml.ElementList
-import org.simpleframework.xml.Root
-
-import java.lang.reflect.Array
-import java.util.ArrayList
+import java.util.*
+import javax.xml.bind.annotation.XmlElements
+import javax.xml.bind.annotation.XmlRootElement
 
 /**
  * Created by Michael on 2016-07-09.
  */
 
-@Root(name = "media", strict = false)
-data class Media(@field:ElementList(required = false) var photos: ArrayList<Photo>? = null) {
+@XmlRootElement(name = "media")
+data class Media(@XmlElements var photos: ArrayList<Photo>? = null) {
 
     val hiResPhotos: ArrayList<Photo>
         get() {

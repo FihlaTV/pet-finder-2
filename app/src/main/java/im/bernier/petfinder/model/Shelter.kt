@@ -13,13 +13,13 @@
 
 package im.bernier.petfinder.model
 
-import org.simpleframework.xml.Element
-import org.simpleframework.xml.Root
+import javax.xml.bind.annotation.XmlElement
+import javax.xml.bind.annotation.XmlRootElement
 
 /**
  * Created by Michael on 2016-10-29.
  */
 
-@Root(name = "shelter", strict = false)
-data class Shelter(@field:Element var id: String? = null, @field:Element var name: String? = null, @field:Element(required = false) var address1: String? = null, @field:Element(required = false) var address2: String? = null, @field:Element var city: String? = null, @field:Element var state: String? = null, @field:Element var country: String? = null, @field:Element var zip: String? = null, @field:Element var latitude: Double = 0.toDouble(), @field:Element var longitude: Double = 0.toDouble(), @field:Element(required = false) var phone: String? = null, @field:Element var email: String? = null)
+@XmlRootElement(name = "shelter")
+data class Shelter(@XmlElement var id: String? = null, @XmlElement var name: String? = null, @XmlElement(required = false) var address1: String? = null, @XmlElement(required = false) var address2: String? = null, @XmlElement var city: String? = null, @XmlElement var state: String? = null, @XmlElement var country: String? = null, @XmlElement var zip: String? = null, @XmlElement var latitude: Double = 0.toDouble(), @XmlElement var longitude: Double = 0.toDouble(), @XmlElement(required = false) var phone: String? = null, @XmlElement var email: String? = null)
 

@@ -15,16 +15,15 @@ package im.bernier.petfinder.model
 
 import android.os.Bundle
 import android.text.TextUtils
-
-import org.simpleframework.xml.Element
-import org.simpleframework.xml.Root
+import javax.xml.bind.annotation.XmlElement
+import javax.xml.bind.annotation.XmlRootElement
 
 /**
  * Created by Michael on 2016-07-12.
  */
 
-@Root(name = "contact", strict = false)
-data class Contact(@field:Element(required = false) var name: String? = null, @field:Element(required = false) var address1: String? = null, @field:Element(required = false) var address2: String? = null, @field:Element(required = false) var city: String? = null, @field:Element(required = false) var state: String? = null, @field:Element(required = false) var zip: String? = null, @field:Element(required = false) var phone: String? = null, @field:Element(required = false) var email: String? = null) {
+@XmlRootElement(name = "contact")
+data class Contact(@XmlElement(required = false) var name: String? = null, @XmlElement(required = false) var address1: String? = null, @XmlElement(required = false) var address2: String? = null, @XmlElement(required = false) var city: String? = null, @XmlElement(required = false) var state: String? = null, @XmlElement(required = false) var zip: String? = null, @XmlElement(required = false) var phone: String? = null, @XmlElement(required = false) var email: String? = null) {
 
     val address: String
         get() {

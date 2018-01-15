@@ -13,12 +13,12 @@
 
 package im.bernier.petfinder.model
 
-import org.simpleframework.xml.Element
-import org.simpleframework.xml.Root
+import javax.xml.bind.annotation.XmlElement
+import javax.xml.bind.annotation.XmlRootElement
 
 /**
  * Created by micha on 2016-08-08.
  */
 
-@Root(name = "header", strict = false)
-data class ErrorHeader(@field:Element var status: ErrorStatus? = null)
+@XmlRootElement(name = "header")
+data class ErrorHeader(@XmlElement var status: ErrorStatus? = null)

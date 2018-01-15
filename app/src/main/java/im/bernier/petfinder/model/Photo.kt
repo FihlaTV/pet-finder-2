@@ -13,14 +13,12 @@
 
 package im.bernier.petfinder.model
 
-import org.simpleframework.xml.Attribute
-import org.simpleframework.xml.Element
-import org.simpleframework.xml.Root
-import org.simpleframework.xml.Text
+import javax.xml.bind.annotation.XmlElement
+import javax.xml.bind.annotation.XmlRootElement
 
 /**
- * Created by micha on 2016-07-09.
+ * Created by Michael on 2016-07-09.
  */
 
-@Root(name = "photo", strict = false)
-data class Photo(@field:Attribute var id: Int = 0, @field:Attribute var size: String? = "", @field:Text var value: String? = "")
+@XmlRootElement(name = "photo")
+data class Photo(@XmlElement var id: Int = 0, @XmlElement var size: String? = "", @XmlElement var value: String? = "")
